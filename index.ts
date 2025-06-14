@@ -6,17 +6,22 @@ import * as random from '@pulumi/random';
 // -----------------------------
 // 設定値 Pulumi.xxx.yaml から取得
 // -----------------------------
-const config = new pulumi.Config();
-const projectId = config.require('projectId');
-const region = config.require('region');
+const gcpConfig = new pulumi.Config('gcp');
+const projectConfig = new pulumi.Config();
+
+const projectId = gcpConfig.require('project');
+const region = gcpConfig.require('region');
 // Supabaseのパスワードはセキュアな値として設定することを推奨します。
 // Pulumiだと以下のコマンドで設定できます:
 // pulumi config set --secret supabasePassword YOUR_SUPABASE_PASSWORD
-const supabasePassword = config.requireSecret('supabasePassword');
-const supabaseHost = config.require('supabaseHost');
-const supabasePort = config.require('supabasePort');
-const supabaseDatabase = config.require('supabaseDatabase');
-const supabaseUser = config.require('supabaseUser');
+const supabasePassword = projectConfig.requireSecret('supabasePassword');
+const supabaseHost = projectConfig.require('supabaseHost');
+const supabasePort = projectConfig.require('supabasePort');
+const supabaseDatabase = projectConfig.require('supabaseDatabase');
+const supabaseUser = projectConfig.require('supabaseUser');
+
+console.log(`Project ID: ${projectId}`);
+console.log(`Region: ${region}`);
 
 // -----------------------------
 // APIの有効化

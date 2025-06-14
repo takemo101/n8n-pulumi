@@ -1,8 +1,6 @@
 config:
   gcp:project: xxxxxxxxxxx
   gcp:region: asia-northeast1
-  n8npulumi:projectId: xxxxxxxxxx
-  n8npulumi:region: asia-northeast1
   n8npulumi:supabaseHost: 'db.xxxxxxxxxxxxxxxx.supabase.co'
   n8npulumi:supabasePort: '5432'
   n8npulumi:supabaseDatabase: 'postgres'
