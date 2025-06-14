@@ -1,0 +1,4 @@
+/bin/
+/node_modules/
+/.devbox
+Pulumi.local.yaml
